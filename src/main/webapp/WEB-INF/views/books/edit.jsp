@@ -25,37 +25,39 @@
 				 <input type="number" class="form-control" name="pages" id="bookPages"
 							placeholder="156" value="${ book.pages }">
 			  </div>
+
 			  <div class="form-group">
-				<label for="bookAuthorName">Autor</label>
-				<select class="form-control" name="authorName" id="bookAuthorName">
+				<label for="bookAuthorId">Autor</label>
+				<select class="form-control" name="authorId" id="bookAuthorId">
 				  
-				  <option  
-				  	<c:out value="${ empty book.authorName ? 'selected' : '' }" />
-				  	disabled
-				  >Selecione um autor</option>
+				  <option
+							<c:out value="${ empty bookForm.authorId ? 'selected' : '' }" />
+							disabled>Selecione um autor</option>
 				  <c:forEach var="author" items="${ authors }">
-				  	<option
-				  		value="${ author.name }"
-				  		<c:out value="${ book.authorName.equals(author.name) ? 'selected' : '' }" />
-				  	>${ author.name }</option>
+				  	<option value="${ author.id }"
+								<c:out value="${ bookForm.authorId.equals(author.id) ? 'selected' : '' }" />>${ author.name }</option>
 				  </c:forEach>
 				</select>
+			  	<form:errors path="bookForm.authorId"
+						cssClass="alert alert-danger mt-2" element="div" />
 			   </div>
+
 			   <div class="form-group">
-			   <label for="bookCategoryTitle">Categoria</label>
-   			   <select class="form-control" name="categoryTitle" id="bookCategoryTitle">
-				  <option  
-				  	<c:out value="${ empty book.categoryTitle ? 'selected' : '' }" />
-				  	disabled
-				  >Selecione uma categoria</option>
+				   <label for="bookCategoryId">Categoria</label>
+	   			   <select class="form-control" name="categoryId"
+						id="bookCategoryId">
+				  <option
+							<c:out value="${ empty bookForm.categoryId ? 'selected' : '' }" />
+							disabled>Selecione uma categoria</option>
 				  <c:forEach var="category" items="${ categories }">
-				  	<option
-				  		<c:out value="${ book.categoryTitle.equals(category.title) ? 'selected' : '' }" />
-				  	>${ category.title }</option>
+				  	<option	value="${ category.id }"
+								<c:out value="${ bookForm.categoryId.equals(category.id) ? 'selected' : '' }" />>${ category.title }</option>
 				  </c:forEach>
 				</select>
-			   
+			  	<form:errors path="bookForm.categoryId"
+						cssClass="alert alert-danger mt-2" element="div" />
 			 </div>
+			 
    			  <div class="form-group">
 			    <label for="bookCoverUrl">Capa url</label>
 			    <input type="text" class="form-control" name="coverUrl" id="bookCoverUrl"

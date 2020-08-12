@@ -23,13 +23,13 @@ import br.com.caelum.casadocodigo.model.Category;
 
 @Controller
 public class BookController {
-	
+
 	@Autowired
 	private BookDao bookDao;
-	
+
 	@Autowired
 	private AuthorDao authorDao;
-	
+
 	@Autowired
 	private CategoryDao categoryDao;
 
@@ -37,7 +37,7 @@ public class BookController {
 	public ModelAndView form() {
 		List<Category> categories = categoryDao.list();
 		List<Author> authors = authorDao.list();
-		
+
 		ModelAndView mv = new ModelAndView("books/form");
 		mv.addObject("authors", authors);
 		mv.addObject("categories", categories);
@@ -47,11 +47,11 @@ public class BookController {
 	@RequestMapping("/books")
 	public ModelAndView list() {
 		ModelAndView mv = new ModelAndView("books/books");
-		List<Book> books = bookDao.list();		
+		List<Book> books = bookDao.list();
 		mv.addObject("books", books);
 		return mv;
 	}
-	
+
 	@RequestMapping("/books/{id}")
 	public ModelAndView book(@PathVariable("id") Long bookId) {
 		Book book = bookDao.findById(bookId);
@@ -59,43 +59,41 @@ public class BookController {
 		mv.addObject("book", book);
 		return mv;
 	}
-	
+
 	@RequestMapping("/books/{id}/edit")
 	public ModelAndView editForm(@PathVariable("id") Long bookId) {
 		Book book = bookDao.findById(bookId);
-		List<Category> categories = categoryDao.list();
-		List<Author> authors = authorDao.list();
-			
+
 		ModelAndView mv = new ModelAndView("books/edit");
-		mv.addObject("authors", authors);
-		mv.addObject("categories", categories);
+		mv.addObject("authors", authorDao.list());
+		mv.addObject("categories", categoryDao.list());
 		mv.addObject("book", book);
 		return mv;
 	}
-	
+
 	@Transactional
 	@RequestMapping("/books/update")
-	public String create(Long bookId, @Valid BookForm form, BindingResult result) {			
+	public ModelAndView create(Long bookId, @Valid BookForm form, BindingResult result) {
 		if (result.hasErrors()) {
 			result.getAllErrors().forEach(System.out::println);
-			return "books/edit";
+			return editForm(bookId);
 		}
-		Book book = form.build();
+		Book book = form.build(authorDao, categoryDao);
 		book.setId(bookId);
 		bookDao.update(book);
-		return "redirect:/books";
+		return new ModelAndView("redirect:/books");
 	}
 
 	@Transactional
 	@RequestMapping("/books/create")
-	public String create(@Valid BookForm form, BindingResult result) {			
+	public ModelAndView create(@Valid BookForm form, BindingResult result) {
 		if (result.hasErrors()) {
 			result.getAllErrors().forEach(System.out::println);
-			return "books/form";
+			return form();
 		}
-		Book book = form.build();
+		Book book = form.build(authorDao, categoryDao);
 		bookDao.save(book);
-		return "redirect:/books";
+		return new ModelAndView("redirect:/books");
 	}
 
 	@RequestMapping("/books/total")

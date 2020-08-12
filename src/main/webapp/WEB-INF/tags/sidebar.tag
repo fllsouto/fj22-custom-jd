@@ -24,5 +24,10 @@
 				<i class="fa fa-book fa-lg"></i> Livros
 			</a>
 		</li>
+				<li class="nav-item">
+			<a class="nav-link" href="<c:url value='/products' />" >
+				<i class="fa fa-cube fa-lg"></i> Produtos
+			</a>
+		</li>
 	</ul>
 </div>

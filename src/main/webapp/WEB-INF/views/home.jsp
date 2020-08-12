@@ -40,6 +40,17 @@
 								</div>
 							</div>
 						</div>
+						<div class="col-xl-3 col-sm-6 py-2">
+							<div class="card text-white bg-info h-100">
+								<div class="card-body bg-dark">
+									<div class="rotate">
+										<i class="fa fa-cube fa-4x"></i>
+									</div>
+									<h6 class="text-uppercase">Produtos</h6>
+									<span class="display-4 productsNumber"></span>
+								</div>
+							</div>
+						</div>
 					</div>
 					<!--/row-->
 				</div>
@@ -54,6 +65,7 @@
 					fetchInformations("authors/total", ".authorsNumber");
 					fetchInformations("categories/total", ".categoriesNumber");
 					fetchInformations("books/total", ".booksNumber");
+					fetchInformations("products/total", ".productsNumber");
 				</script>
     </jsp:body>
 </cdc:template>

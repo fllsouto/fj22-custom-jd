@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Book {
@@ -21,8 +22,12 @@ public class Book {
 	private String title;
 	private LocalDate releaseDate;
 	private Long pages;
-	private String authorName;
-	private String categoryTitle;
+	
+	@ManyToOne
+	private Author author;
+
+	@ManyToOne
+	private Category category;
 	private String coverUrl = "https://firstfreerockford.org/wp-content/uploads/2018/08/placeholder-book-cover-default.png";
 
 	@Lob
@@ -34,14 +39,13 @@ public class Book {
     public Book() {
 	}
     
-	public Book(String title, Date releaseDate, Long pages, String authorName, String categoryTitle,
+	public Book(String title, Date releaseDate, Long pages, Author author, Category category,
 			String coverUrl, String description) {
-		super();
 		this.title = title;
 		this.releaseDate = releaseDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		this.pages = pages;
-		this.authorName = authorName;
-		this.categoryTitle = categoryTitle;
+		this.author = author;
+		this.category = category;
 		this.coverUrl = coverUrl;
 		this.description = description;
 	}
@@ -82,20 +86,21 @@ public class Book {
 		this.pages = pages;
 	}
 
-	public String getAuthorName() {
-		return authorName;
+
+	public Author getAuthor() {
+		return author;
 	}
 
-	public void setAuthorName(String authorName) {
-		this.authorName = authorName;
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
-	public String getCategoryTitle() {
-		return categoryTitle;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategoryTitle(String categoryTitle) {
-		this.categoryTitle = categoryTitle;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public String getCoverUrl() {
@@ -114,6 +119,12 @@ public class Book {
 		this.description = description;
 	}
     
+    public String getAuthorName() {
+    	return this.author.getName();
+    }
     
+    public String getCategoryTitle() {
+    	return this.category.getTitle();
+    }
 	
 }

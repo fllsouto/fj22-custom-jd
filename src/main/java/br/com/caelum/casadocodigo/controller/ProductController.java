@@ -1,0 +1,82 @@
+package br.com.caelum.casadocodigo.controller;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import br.com.caelum.casadocodigo.controller.form.ProductForm;
+import br.com.caelum.casadocodigo.dao.BookDao;
+import br.com.caelum.casadocodigo.dao.ProductDao;
+import br.com.caelum.casadocodigo.model.Book;
+import br.com.caelum.casadocodigo.model.Product;
+import br.com.caelum.casadocodigo.model.ProductKind;
+
+@Controller
+public class ProductController {
+	
+	@Autowired
+	private ProductDao productDao;
+	
+	@Autowired
+	private BookDao bookDao;
+
+	@RequestMapping("/products/form")
+	public ModelAndView form() {
+		List<Book> books = bookDao.list();
+		ModelAndView mv = new ModelAndView("products/form");
+		mv.addObject("books", books);
+		mv.addObject("productKind", ProductKind.values());
+		return mv;
+	}
+
+	@RequestMapping("/products")
+	public ModelAndView list() {
+		ModelAndView mv = new ModelAndView("products/products");
+		List<Product> products = productDao.list();		
+		mv.addObject("products", products);
+		return mv;
+	}
+	
+	@RequestMapping("/products/{id}")
+	public ModelAndView product(@PathVariable("id") Long productId) {
+		Product product = productDao.findById(productId);
+		
+		ModelAndView mv = new ModelAndView("products/product");
+		mv.addObject("product", product);
+		return mv;
+	}
+	
+	@Transactional
+	@RequestMapping("/products/{id}/remove")
+	public ModelAndView create(@PathVariable("id") Long productId) {			
+		productDao.remove(productId);
+		return new ModelAndView("redirect:/products");
+	}
+	
+	
+	@Transactional
+	@RequestMapping("/products/create")
+	public ModelAndView create(@Valid ProductForm form, BindingResult result) {			
+		if (result.hasErrors()) {
+			return form();
+		}
+		Product product = form.build(bookDao);
+		productDao.save(product);
+		return new ModelAndView("redirect:/products");
+	}
+
+	@RequestMapping("/products/total")
+	@ResponseBody
+	public String total() {
+		return productDao.count().toString();
+	}
+}
