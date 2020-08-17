@@ -1,4 +1,4 @@
-package br.com.caelum.casadocodigo.controller;
+package br.com.caelum.casadocodigo.controller.admin;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import br.com.caelum.casadocodigo.model.Product;
 import br.com.caelum.casadocodigo.model.ProductKind;
 
 @Controller
-public class ProductController {
+public class ProductAdminController {
 	
 	@Autowired
 	private ProductDao productDao;
@@ -33,7 +33,7 @@ public class ProductController {
 	@GetMapping("/admin/products/form")
 	public ModelAndView form() {
 		List<Book> books = bookDao.list();
-		ModelAndView mv = new ModelAndView("products/form");
+		ModelAndView mv = new ModelAndView("/admin/products/form");
 		mv.addObject("books", books);
 		mv.addObject("productKind", ProductKind.values());
 		return mv;
@@ -41,7 +41,7 @@ public class ProductController {
 
 	@GetMapping("/admin/products")
 	public ModelAndView list() {
-		ModelAndView mv = new ModelAndView("products/products");
+		ModelAndView mv = new ModelAndView("/admin/products/products");
 		List<Product> products = productDao.list();		
 		mv.addObject("products", products);
 		return mv;
@@ -51,13 +51,13 @@ public class ProductController {
 	public ModelAndView product(@PathVariable("id") Long productId) {
 		Product product = productDao.findById(productId);
 		
-		ModelAndView mv = new ModelAndView("products/product");
+		ModelAndView mv = new ModelAndView("/admin/products/product");
 		mv.addObject("product", product);
 		return mv;
 	}
 	
 	@Transactional
-	@PostMapping("/admin/products/{id}/remove")
+	@GetMapping("/admin/products/{id}/remove")
 	public ModelAndView create(@PathVariable("id") Long productId) {			
 		productDao.remove(productId);
 		return new ModelAndView("redirect:/admin/products");

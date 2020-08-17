@@ -1,4 +1,4 @@
-package br.com.caelum.casadocodigo.controller;
+package br.com.caelum.casadocodigo.controller.admin;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ import br.com.caelum.casadocodigo.model.Author;
 import br.com.caelum.casadocodigo.model.Book;
 
 @Controller
-public class AuthorController {
+public class AuthorAdminController {
 	
 	@Autowired
 	private AuthorDao authorDao;
@@ -31,13 +31,13 @@ public class AuthorController {
 
 	@GetMapping("/admin/authors/form")
 	public ModelAndView form() {
-		ModelAndView mv = new ModelAndView("authors/form");
+		ModelAndView mv = new ModelAndView("/admin/authors/form");
 		return mv;
 	}
 
 	@GetMapping("/admin/authors")
 	public ModelAndView list() {
-		ModelAndView mv = new ModelAndView("authors/authors");
+		ModelAndView mv = new ModelAndView("/admin/authors/authors");
 		List<Author> authors = authorDao.list();		
 		mv.addObject("authors", authors);
 		return mv;
@@ -48,7 +48,7 @@ public class AuthorController {
 		Author author = authorDao.findById(authorId);
 		List<Book> booksByAuthor = bookDao.findByAuthor(author);
 		
-		ModelAndView mv = new ModelAndView("authors/author");
+		ModelAndView mv = new ModelAndView("/admin/authors/author");
 		mv.addObject("author", author);
 		mv.addObject("numberOfBooks", booksByAuthor.size());
 		return mv;
@@ -57,7 +57,7 @@ public class AuthorController {
 	@GetMapping("/admin/authors/{id}/edit")
 	public ModelAndView editForm(@PathVariable("id") Long authorId) {
 		Author author = authorDao.findById(authorId);
-		ModelAndView mv = new ModelAndView("authors/edit");
+		ModelAndView mv = new ModelAndView("/admin/authors/edit");
 		mv.addObject("author", author);
 		return mv;
 	}

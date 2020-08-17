@@ -38,7 +38,7 @@
 		<div class="container-fluid" id="main">
 			<div class="row row-offcanvas row-offcanvas-left">
 		
-				<cdc:sidebar />
+				<cdc:adminSidebar />
 				<jsp:doBody />
 				
 				<!--/col-->

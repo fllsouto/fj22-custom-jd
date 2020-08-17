@@ -1,7 +1,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="cdc" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<cdc:template>
+<cdc:adminTemplate>
 	<jsp:body>
  		<div class="col main pt-5 mt-3">
 			<h2 class="display-4 d-none d-sm-block">Informações da Categoria</h2>
@@ -17,7 +17,7 @@
 			</dl>
 		</div>
     </jsp:body>
-</cdc:template>
+</cdc:adminTemplate>
 
 
     

@@ -1,4 +1,4 @@
-package br.com.caelum.casadocodigo.controller;
+package br.com.caelum.casadocodigo.controller.admin;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ import br.com.caelum.casadocodigo.model.Book;
 import br.com.caelum.casadocodigo.model.Category;
 
 @Controller
-public class CategoryController {
+public class CategoryAdminController {
 	
 	@Autowired
 	private CategoryDao categoryDao;
@@ -31,13 +31,13 @@ public class CategoryController {
 
 	@GetMapping("/admin/categories/form")
 	public ModelAndView form() {
-		ModelAndView mv = new ModelAndView("categories/form");
+		ModelAndView mv = new ModelAndView("/admin/categories/form");
 		return mv;
 	}
 
 	@GetMapping("/admin/categories")
 	public ModelAndView list() {
-		ModelAndView mv = new ModelAndView("categories/categories");
+		ModelAndView mv = new ModelAndView("/admin/categories/categories");
 		List<Category> categories = categoryDao.list();		
 		mv.addObject("categories", categories);
 		return mv;
@@ -48,7 +48,7 @@ public class CategoryController {
 		Category category = categoryDao.findById(categoryId);
 		List<Book> booksByCategory = bookDao.findByCategory(category);
 		
-		ModelAndView mv = new ModelAndView("categories/category");
+		ModelAndView mv = new ModelAndView("/admin/categories/category");
 		mv.addObject("category", category);
 		mv.addObject("numberOfBooks", booksByCategory.size());
 		return mv;
@@ -57,7 +57,7 @@ public class CategoryController {
 	@GetMapping("/admin/categories/{id}/edit")
 	public ModelAndView editForm(@PathVariable("id") Long categoryId) {
 		Category category = categoryDao.findById(categoryId);
-		ModelAndView mv = new ModelAndView("categories/edit");
+		ModelAndView mv = new ModelAndView("/admin/categories/edit");
 		mv.addObject("category", category);
 		return mv;
 	}

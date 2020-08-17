@@ -1,7 +1,7 @@
 <%@ taglib tagdir="/WEB-INF/tags/" prefix="cdc" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<cdc:template>
+<cdc:adminTemplate>
     <jsp:body>
     	<div class="col main pt-5 mt-3">
 					<h2 class="display-4 d-none d-sm-block">Painel de Administração</h2>
@@ -62,10 +62,10 @@
 						})
 					}
 
-					fetchInformations("authors/total", ".authorsNumber");
-					fetchInformations("categories/total", ".categoriesNumber");
-					fetchInformations("books/total", ".booksNumber");
-					fetchInformations("products/total", ".productsNumber");
+					fetchInformations("/admin/authors/total", ".authorsNumber");
+					fetchInformations("/admin/categories/total", ".categoriesNumber");
+					fetchInformations("/admin/books/total", ".booksNumber");
+					fetchInformations("/admin/products/total", ".productsNumber");
 				</script>
     </jsp:body>
-</cdc:template>
+</cdc:adminTemplate>

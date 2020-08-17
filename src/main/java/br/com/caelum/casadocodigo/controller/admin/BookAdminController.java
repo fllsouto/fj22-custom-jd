@@ -1,4 +1,4 @@
-package br.com.caelum.casadocodigo.controller;
+package br.com.caelum.casadocodigo.controller.admin;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ import br.com.caelum.casadocodigo.model.Book;
 import br.com.caelum.casadocodigo.model.Category;
 
 @Controller
-public class BookController {
+public class BookAdminController {
 
 	@Autowired
 	private BookDao bookDao;
@@ -39,7 +39,7 @@ public class BookController {
 		List<Category> categories = categoryDao.list();
 		List<Author> authors = authorDao.list();
 
-		ModelAndView mv = new ModelAndView("books/form");
+		ModelAndView mv = new ModelAndView("/admin/books/form");
 		mv.addObject("authors", authors);
 		mv.addObject("categories", categories);
 		return mv;
@@ -47,7 +47,7 @@ public class BookController {
 
 	@GetMapping("/admin/books")
 	public ModelAndView list() {
-		ModelAndView mv = new ModelAndView("books/books");
+		ModelAndView mv = new ModelAndView("/admin/books/books");
 		List<Book> books = bookDao.list();
 		mv.addObject("books", books);
 		return mv;
@@ -56,7 +56,7 @@ public class BookController {
 	@GetMapping("/admin/books/{id}")
 	public ModelAndView book(@PathVariable("id") Long bookId) {
 		Book book = bookDao.findById(bookId);
-		ModelAndView mv = new ModelAndView("books/book");
+		ModelAndView mv = new ModelAndView("/admin/books/book");
 		mv.addObject("book", book);
 		return mv;
 	}
@@ -65,7 +65,7 @@ public class BookController {
 	public ModelAndView editForm(@PathVariable("id") Long bookId) {
 		Book book = bookDao.findById(bookId);
 
-		ModelAndView mv = new ModelAndView("books/edit");
+		ModelAndView mv = new ModelAndView("/admin/books/edit");
 		mv.addObject("authors", authorDao.list());
 		mv.addObject("categories", categoryDao.list());
 		mv.addObject("book", book);

@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 
-<cdc:template>
+<cdc:adminTemplate>
     <jsp:body>
  		<div class="col main pt-5 mt-3">
 	        <h2 class="display-4 d-none d-sm-block">Formulário de Criação Autores</h2>
@@ -35,4 +35,4 @@
 			</form>
         </div>
     </jsp:body>
-</cdc:template>
+</cdc:adminTemplate>
