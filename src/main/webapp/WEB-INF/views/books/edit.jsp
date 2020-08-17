@@ -7,10 +7,10 @@
 	<jsp:body>
  		<div class="col main pt-5 mt-3">
 	        <h2 class="display-4 d-none d-sm-block">Formulário de Edição de Livros</h2>
-	        <form  action="<c:url value='/books/update' />" method="post">
+			<form  action="<c:url value='/admin/books/update' />" method="post">
         	  <input type="hidden" name="bookId" value="${ book.id }">
 			  <div class="form-group">
-			    <label for="bookTitle">Título</label>
+			    <label for="bookTitle">Titulo</label>
 			    <input type="text" class="form-control" name="title" id="bookTitle"
 						placeholder="Algoritmos em Java" value="${ book.title }">
 			  </div>
@@ -67,7 +67,7 @@
 			  <div class="form-group">
 			    <label for="bookDescription">Descrição</label>
 			    <textarea class="form-control" name="description" id="bookDescription" rows="3"
-						placeholder="Em nosso dia a dia, realizamos uma sï¿½rie de buscas e ordenaï¿½ï¿½es que nos sï¿½o tï¿½o naturais que nem percebemos como sua presenï¿½a ï¿½ ubï¿½qua e facilita nossa vida...."
+						placeholder="Em nosso dia a dia, realizamos uma série de buscas e ordenações que nos são tão naturais que nem percebemos como sua presença é ubíqua e facilita nossa vida..."
 					>${ book.description }</textarea>
 			  </div>
 		  	  <button type="submit" class="btn btn-primary mb-2">Salvar</button>

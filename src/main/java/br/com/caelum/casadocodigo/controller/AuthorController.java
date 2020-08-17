@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,13 +29,13 @@ public class AuthorController {
 	@Autowired
 	private BookDao bookDao;
 
-	@RequestMapping("/authors/form")
+	@GetMapping("/admin/authors/form")
 	public ModelAndView form() {
 		ModelAndView mv = new ModelAndView("authors/form");
 		return mv;
 	}
 
-	@RequestMapping("/authors")
+	@GetMapping("/admin/authors")
 	public ModelAndView list() {
 		ModelAndView mv = new ModelAndView("authors/authors");
 		List<Author> authors = authorDao.list();		
@@ -42,7 +43,7 @@ public class AuthorController {
 		return mv;
 	}
 	
-	@RequestMapping("/authors/{id}")
+	@GetMapping("/admin/authors/{id}")
 	public ModelAndView author(@PathVariable("id") Long authorId) {
 		Author author = authorDao.findById(authorId);
 		List<Book> booksByAuthor = bookDao.findByAuthor(author);
@@ -53,7 +54,7 @@ public class AuthorController {
 		return mv;
 	}
 	
-	@RequestMapping("/authors/{id}/edit")
+	@GetMapping("/admin/authors/{id}/edit")
 	public ModelAndView editForm(@PathVariable("id") Long authorId) {
 		Author author = authorDao.findById(authorId);
 		ModelAndView mv = new ModelAndView("authors/edit");
@@ -62,30 +63,30 @@ public class AuthorController {
 	}
 	
 	@Transactional
-	@RequestMapping("/authors/update")
-	public String create(Long authorId, @Valid AuthorForm form, BindingResult result) {			
+	@PostMapping("/admin/authors/update")
+	public ModelAndView create(Long authorId, @Valid AuthorForm form, BindingResult result) {			
 		if (result.hasErrors()) {
-			return "authors/edit";
+			return editForm(authorId);
 		}
 		Author author = form.build();
 		author.setId(authorId);
 		authorDao.update(author);
-		return "redirect:/authors";
+		return new ModelAndView("redirect:/admin/authors");
 	}
 	
 	
 	@Transactional
-	@RequestMapping("/authors/create")
-	public String create(@Valid AuthorForm form, BindingResult result) {			
+	@PostMapping("/admin/authors/create")
+	public ModelAndView create(@Valid AuthorForm form, BindingResult result) {			
 		if (result.hasErrors()) {
-			return "authors/form";
+			return form();
 		}
 		Author author = form.build();
 		authorDao.save(author);
-		return "redirect:/authors";
+		return new ModelAndView("redirect:/admin/authors");
 	}
 
-	@RequestMapping("/authors/total")
+	@GetMapping("/admin/authors/total")
 	@ResponseBody
 	public String total() {
 		return authorDao.count().toString();

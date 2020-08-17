@@ -39,15 +39,15 @@ public class BookDao {
 	}
 
 	public List<Book> findByCategory(Category category) {
-		Query query = manager.createQuery("select b from Book b where b.categoryTitle = :categoryTitle", Book.class);
-		query.setParameter("categoryTitle", category.getTitle());
+		Query query = manager.createQuery("select b from Book b where b.category = :category", Book.class);
+		query.setParameter("category", category);
 		
 		return query.getResultList();
 	}
 
 	public List<Book> findByAuthor(Author author) {
-		Query query = manager.createQuery("select b from Book b where b.authorName = :authorName", Book.class);
-		query.setParameter("authorName", author.getName());
+		Query query = manager.createQuery("select b from Book b where b.author = :author", Book.class);
+		query.setParameter("author", author);
 		
 		return query.getResultList();
 	}

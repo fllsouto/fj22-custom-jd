@@ -7,7 +7,7 @@
     <jsp:body>
  		<div class="col main pt-5 mt-3">
 	        <h2 class="display-4 d-none d-sm-block">Formulário de Criação Autores</h2>
-	        <form  action="<c:url value='/authors/create' />" method="post">
+	        <form  action="<c:url value='/admin/authors/create' />" method="post">
 			  <div class="form-group">
 			    <label for="authorName">Nome</label>
 			    <input type="text" class="form-control" name="name" id="authorName" value="${ authorForm.name }" placeholder="João da Silva">

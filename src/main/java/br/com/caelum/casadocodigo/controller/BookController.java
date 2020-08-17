@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,7 +34,7 @@ public class BookController {
 	@Autowired
 	private CategoryDao categoryDao;
 
-	@RequestMapping("/books/form")
+	@GetMapping("/admin/books/form")
 	public ModelAndView form() {
 		List<Category> categories = categoryDao.list();
 		List<Author> authors = authorDao.list();
@@ -44,7 +45,7 @@ public class BookController {
 		return mv;
 	}
 
-	@RequestMapping("/books")
+	@GetMapping("/admin/books")
 	public ModelAndView list() {
 		ModelAndView mv = new ModelAndView("books/books");
 		List<Book> books = bookDao.list();
@@ -52,7 +53,7 @@ public class BookController {
 		return mv;
 	}
 
-	@RequestMapping("/books/{id}")
+	@GetMapping("/admin/books/{id}")
 	public ModelAndView book(@PathVariable("id") Long bookId) {
 		Book book = bookDao.findById(bookId);
 		ModelAndView mv = new ModelAndView("books/book");
@@ -60,7 +61,7 @@ public class BookController {
 		return mv;
 	}
 
-	@RequestMapping("/books/{id}/edit")
+	@GetMapping("/admin/books/{id}/edit")
 	public ModelAndView editForm(@PathVariable("id") Long bookId) {
 		Book book = bookDao.findById(bookId);
 
@@ -72,7 +73,7 @@ public class BookController {
 	}
 
 	@Transactional
-	@RequestMapping("/books/update")
+	@PostMapping("/admin/books/update")
 	public ModelAndView create(Long bookId, @Valid BookForm form, BindingResult result) {
 		if (result.hasErrors()) {
 			result.getAllErrors().forEach(System.out::println);
@@ -81,11 +82,11 @@ public class BookController {
 		Book book = form.build(authorDao, categoryDao);
 		book.setId(bookId);
 		bookDao.update(book);
-		return new ModelAndView("redirect:/books");
+		return new ModelAndView("redirect:/admin/books");
 	}
 
 	@Transactional
-	@RequestMapping("/books/create")
+	@PostMapping("/admin/books/create")
 	public ModelAndView create(@Valid BookForm form, BindingResult result) {
 		if (result.hasErrors()) {
 			result.getAllErrors().forEach(System.out::println);
@@ -93,10 +94,10 @@ public class BookController {
 		}
 		Book book = form.build(authorDao, categoryDao);
 		bookDao.save(book);
-		return new ModelAndView("redirect:/books");
+		return new ModelAndView("redirect:/admin/books");
 	}
 
-	@RequestMapping("/books/total")
+	@GetMapping("/admin/books/total")
 	@ResponseBody
 	public String total() {
 		return bookDao.count().toString();

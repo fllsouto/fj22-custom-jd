@@ -6,7 +6,7 @@
     <jsp:body>
  		<div class="col main pt-5 mt-3">
 	        <h2 class="display-4 d-none d-sm-block">Formulário de Edição de Categorias</h2>
-	        <form  action="<c:url value='/category/update' />" method="post">
+			<form  action="<c:url value='/admin/categories/update' />" method="post">
           	  <input type="hidden" name="categoryId" value="${ category.id }">
 	        
   			  <div class="form-group">
@@ -19,7 +19,7 @@
 			  <div class="form-group">
 			    <label for="categoryDescription">Descrição</label>
 			    <textarea class="form-control" name="description" id="categoryDescription" rows="3" 
-			    	placeholder="Aprenda a desenvolver sites utilizando as técnologias mais atuais como HTML5, CSS3 e Javascript..."
+			    	placeholder="Aprenda a desenvolver sites utilizando as tï¿½cnologias mais atuais como HTML5, CSS3 e Javascript..."
 			    >${ category.description }</textarea>
 			  	<form:errors path="categoryForm.description" cssClass="alert alert-danger mt-2" element="div"/>
 				

@@ -6,10 +6,10 @@
 <cdc:template>
     <jsp:body>
  		<div class="col main pt-5 mt-3">
-	        <h2 class="display-4 d-none d-sm-block">Formulário de criação de Produto</h2>
-	        <form  action="<c:url value='/products/create' />" method="post">
+	        <h2 class="display-4 d-none d-sm-block">Formulário de Criação de Produto</h2>
+			<form  action="<c:url value='/admin/products/create' />" method="post">
 						<div class="form-group">
-							<label for="bookTitle">Título do livro</label>
+							<label for="bookTitle">Títutlo do livro</label>
 							<select class="form-control" name="bookId" id="bookTitle">
 						
 								<option <c:out value="${ empty productForm.bookId ? 'selected' : '' }" />

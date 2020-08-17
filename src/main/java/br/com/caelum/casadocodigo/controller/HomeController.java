@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
 	// localhost:8080/casa-do-codigo/<o mapeamento>
-	@RequestMapping("/")
+	@RequestMapping("/admin/")
 	public String execute() {
 		System.out.println("Executando a lógica com Spring MVC");
 		return "home";

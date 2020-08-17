@@ -25,16 +25,16 @@
 									<td>${ book.title }</td>
 									<td>${ book.authorName }</td>
 									<td>${ book.categoryTitle }</td>
-									<td><a class="nav-link" href=" <c:url value='/books/${ book.id }' />" data-toggle="tooltip"
+									<td><a class="nav-link" href=" <c:url value='/admin/books/${ book.id }' />" data-toggle="tooltip"
 											title="Visualizar"><i class="fa fa-eye fa-lg"></i></a></td>
-									<td><a class="nav-link" href=" <c:url value='/books/${ book.id }/edit' />" data-toggle="tooltip"
+									<td><a class="nav-link" href=" <c:url value='/admin/books/${ book.id }/edit' />" data-toggle="tooltip"
 											title="Editar"><i class="fa fa-pencil fa-lg"></i></a></td>
 								</tr>
 							</c:forEach>
 	              </tbody>
 	            </table>
 	          </div>
-	          <a href="<c:url value='/books/form' />"
+	          <a href="<c:url value='/admin/books/form' />"
 				class="btn btn-primary"><i class="fa fa-book fa-1"></i> Novo livro</a>
 			</div>
     </jsp:body>

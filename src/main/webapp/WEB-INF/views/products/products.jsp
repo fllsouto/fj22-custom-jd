@@ -25,14 +25,14 @@
 		                  <td>${ product.title }</td>
 		                  <td>${ product.kind }</td>
 		                  <td>${ product.price }</td>
-		                  <td><a class="nav-link" href=" <c:url value='/products/${ product.id }' />" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye fa-lg"></i></a></td>
-		                  <td><a class="nav-link" href=" <c:url value='/products/${ product.id }/remove' />" data-toggle="tooltip" title="Remover"><i class="fa fa-trash fa-lg"></i></a></td>
+		                  <td><a class="nav-link" href=" <c:url value='/admin/products/${ product.id }' />" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye fa-lg"></i></a></td>
+		                  <td><a class="nav-link" href=" <c:url value='/admin/products/${ product.id }/remove' />" data-toggle="tooltip" title="Remover"><i class="fa fa-trash fa-lg"></i></a></td>
 		                </tr>
 	              	</c:forEach>
 	              </tbody>
 	            </table>
 	          </div>
-	          <a href="<c:url value='/products/form' />" class="btn btn-primary"><i class="fa fa-cube fa-1"></i> Novo produto</a>
+	          <a href="<c:url value='/admin/products/form' />" class="btn btn-primary"><i class="fa fa-cube fa-1"></i> Novo produto</a>
         </div>
     </jsp:body>
 </cdc:template>

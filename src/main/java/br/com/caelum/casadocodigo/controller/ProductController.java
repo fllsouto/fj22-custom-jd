@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,7 +30,7 @@ public class ProductController {
 	@Autowired
 	private BookDao bookDao;
 
-	@RequestMapping("/products/form")
+	@GetMapping("/admin/products/form")
 	public ModelAndView form() {
 		List<Book> books = bookDao.list();
 		ModelAndView mv = new ModelAndView("products/form");
@@ -38,7 +39,7 @@ public class ProductController {
 		return mv;
 	}
 
-	@RequestMapping("/products")
+	@GetMapping("/admin/products")
 	public ModelAndView list() {
 		ModelAndView mv = new ModelAndView("products/products");
 		List<Product> products = productDao.list();		
@@ -46,7 +47,7 @@ public class ProductController {
 		return mv;
 	}
 	
-	@RequestMapping("/products/{id}")
+	@GetMapping("/admin/products/{id}")
 	public ModelAndView product(@PathVariable("id") Long productId) {
 		Product product = productDao.findById(productId);
 		
@@ -56,25 +57,25 @@ public class ProductController {
 	}
 	
 	@Transactional
-	@RequestMapping("/products/{id}/remove")
+	@PostMapping("/admin/products/{id}/remove")
 	public ModelAndView create(@PathVariable("id") Long productId) {			
 		productDao.remove(productId);
-		return new ModelAndView("redirect:/products");
+		return new ModelAndView("redirect:/admin/products");
 	}
 	
 	
 	@Transactional
-	@RequestMapping("/products/create")
+	@PostMapping("/admin/products/create")
 	public ModelAndView create(@Valid ProductForm form, BindingResult result) {			
 		if (result.hasErrors()) {
 			return form();
 		}
 		Product product = form.build(bookDao);
 		productDao.save(product);
-		return new ModelAndView("redirect:/products");
+		return new ModelAndView("redirect:/admin/products");
 	}
 
-	@RequestMapping("/products/total")
+	@GetMapping("/admin/products/total")
 	@ResponseBody
 	public String total() {
 		return productDao.count().toString();

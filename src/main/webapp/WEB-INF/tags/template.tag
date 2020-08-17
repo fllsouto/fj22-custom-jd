@@ -31,7 +31,7 @@
 		<nav
 			class="navbar fixed-top navbar-expand-md navbar-dark mb-3 navbar-color">
 			<div class="flex-row d-flex">
-				<a class="navbar-brand" href=" <c:url value='/' /> " title="Casa do código">Casa do
+				<a class="navbar-brand" href=" <c:url value='/admin/' /> " title="Casa do código">Casa do
 					código</a>
 			</div>
 		</nav>

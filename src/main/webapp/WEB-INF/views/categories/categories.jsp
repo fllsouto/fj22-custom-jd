@@ -11,7 +11,7 @@
 							<tr>
 								<th>#</th>
 								<th>ID</th>
-								<th>Título</th>
+								<th>Titulo</th>
 								<th colspan="2">Ações</th>
 							</tr>
 						</thead>
@@ -21,14 +21,14 @@
 			                  <td>${ loop.index + 1 }</td>
 			                  <td>${ category.id }</td>
 			                  <td>${ category.title }</td>
-			                  <td><a class="nav-link" href=" <c:url value='/categories/${ category.id }' />" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye fa-lg"></i></a></td>
-			                  <td><a class="nav-link" href=" <c:url value='/categories/${ category.id }/edit' />" data-toggle="tooltip" title="Editar"><i class="fa fa-pencil fa-lg"></i></a></td>
+			                  <td><a class="nav-link" href=" <c:url value='/admin/categories/${ category.id }' />" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye fa-lg"></i></a></td>
+			                  <td><a class="nav-link" href=" <c:url value='/admin/categories/${ category.id }/edit' />" data-toggle="tooltip" title="Editar"><i class="fa fa-pencil fa-lg"></i></a></td>
 			                </tr>
 	              		</c:forEach>
 	              </tbody>
 	            </table>
 	          </div>
-	          <a href=" <c:url value='/categories/form' />"
+	          <a href=" <c:url value='/admin/categories/form' />"
 				class="btn btn-primary"><i class="fa fa-list fa-1"></i> Nova categoria</a>
 			</div>
     </jsp:body>

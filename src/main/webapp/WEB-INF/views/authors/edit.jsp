@@ -7,7 +7,7 @@
     <jsp:body>
  		<div class="col main pt-5 mt-3">
 	        <h2 class="display-4 d-none d-sm-block">Formulário de Criação Autores</h2>
-	        <form  action="<c:url value='/authors/update' />" method="post">
+			<form  action="<c:url value='/admin/authors/update' />" method="post">
 	          <input type="hidden" name=authorId value="${ author.id }">
 			  <div class="form-group">
 			    <label for="authorName">Nome</label>

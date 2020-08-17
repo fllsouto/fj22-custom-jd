@@ -21,14 +21,14 @@
 		                  <td>${ loop.index + 1 }</td>
 		                  <td>${ author.id }</td>
 		                  <td>${ author.name }</td>
-		                  <td><a class="nav-link" href=" <c:url value='/authors/${ author.id }' />" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye fa-lg"></i></a></td>
-		                  <td><a class="nav-link" href=" <c:url value='/authors/${ author.id }/edit' />" data-toggle="tooltip" title="Editar"><i class="fa fa-pencil fa-lg"></i></a></td>
+		                  <td><a class="nav-link" href=" <c:url value='/admin/authors/${ author.id }' />" data-toggle="tooltip" title="Visualizar"><i class="fa fa-eye fa-lg"></i></a></td>
+		                  <td><a class="nav-link" href=" <c:url value='/admin/authors/${ author.id }/edit' />" data-toggle="tooltip" title="Editar"><i class="fa fa-pencil fa-lg"></i></a></td>
 		                </tr>
 	              	</c:forEach>
 	              </tbody>
 	            </table>
 	          </div>
-	          <a href="<c:url value='/authors/form' />" class="btn btn-primary"><i class="fa fa-user-plus fa-1"></i> Novo autor</a>
+	          <a href="<c:url value='/admin/authors/form' />" class="btn btn-primary"><i class="fa fa-user-plus fa-1"></i> Novo autor</a>
         </div>
     </jsp:body>
 </cdc:template>

@@ -7,7 +7,7 @@
 	<jsp:body>
  		<div class="col main pt-5 mt-3">
 	        <h2 class="display-4 d-none d-sm-block">Formulário de Criação de Livros</h2>
-	        <form action="<c:url value='/books/create' />" method="post">
+			<form action="<c:url value='/admin/books/create' />" method="post">
 			  <div class="form-group">
 			    <label for="bookTitle">Titulo</label>
 			    <input type="text" class="form-control" name="title"
@@ -79,7 +79,7 @@
 			    <label for="bookDescription">Descrição</label>
 			    <textarea class="form-control" name="description"
 						id="bookDescription" rows="3"
-						placeholder="Em nosso dia a dia, realizamos uma série de buscas e ordenações que nos são tão naturais que nem percebemos como sua presença é ubíqua e facilita nossa vida....">${ bookForm.description }</textarea>
+						placeholder="Em nosso dia a dia, realizamos uma série de buscas e ordenações que nos são tão naturais que nem percebemos como sua presença é ubíqua e facilita nossa vida...">${ bookForm.description }</textarea>
 			  	<form:errors path="bookForm.description"
 						cssClass="alert alert-danger mt-2" element="div" />
 			  </div>

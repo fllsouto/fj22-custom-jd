@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,13 +29,13 @@ public class CategoryController {
 	@Autowired
 	private BookDao bookDao;
 
-	@RequestMapping("/categories/form")
+	@GetMapping("/admin/categories/form")
 	public ModelAndView form() {
 		ModelAndView mv = new ModelAndView("categories/form");
 		return mv;
 	}
 
-	@RequestMapping("/categories")
+	@GetMapping("/admin/categories")
 	public ModelAndView list() {
 		ModelAndView mv = new ModelAndView("categories/categories");
 		List<Category> categories = categoryDao.list();		
@@ -42,7 +43,7 @@ public class CategoryController {
 		return mv;
 	}
 	
-	@RequestMapping("/categories/{id}")
+	@GetMapping("/admin/categories/{id}")
 	public ModelAndView category(@PathVariable("id") Long categoryId) {
 		Category category = categoryDao.findById(categoryId);
 		List<Book> booksByCategory = bookDao.findByCategory(category);
@@ -53,7 +54,7 @@ public class CategoryController {
 		return mv;
 	}
 	
-	@RequestMapping("/categories/{id}/edit")
+	@GetMapping("/admin/categories/{id}/edit")
 	public ModelAndView editForm(@PathVariable("id") Long categoryId) {
 		Category category = categoryDao.findById(categoryId);
 		ModelAndView mv = new ModelAndView("categories/edit");
@@ -62,30 +63,29 @@ public class CategoryController {
 	}
 	
 	@Transactional
-	@RequestMapping("/categories/update")
-	public String create(Long categoryId, @Valid CategoryForm form, BindingResult result) {			
+	@PostMapping("/admin/categories/create")
+	public ModelAndView create(@Valid CategoryForm form, BindingResult result) {			
 		if (result.hasErrors()) {
-			return "categories/edit";
+			return form();
+		}
+		Category category = form.build();
+		categoryDao.save(category);
+		return new ModelAndView("redirect:/admin/categories");
+	}
+
+	@Transactional
+	@PostMapping("/admin/categories/update")
+	public ModelAndView update(Long categoryId, @Valid CategoryForm form, BindingResult result) {			
+		if (result.hasErrors()) {
+			return editForm(categoryId);
 		}
 		Category category = form.build();
 		category.setId(categoryId);
 		categoryDao.update(category);
-		return "redirect:/categories";
+		return new ModelAndView("redirect:/admin/categories");
 	}
 	
-	
-	@Transactional
-	@RequestMapping("/categories/create")
-	public String create(@Valid CategoryForm form, BindingResult result) {			
-		if (result.hasErrors()) {
-			return "categories/form";
-		}
-		Category category = form.build();
-		categoryDao.save(category);
-		return "redirect:/categories";
-	}
-	
-	@RequestMapping("/categories/total")
+	@GetMapping("/admin/categories/total")
 	@ResponseBody
 	public String total() {
 		return categoryDao.count().toString();
