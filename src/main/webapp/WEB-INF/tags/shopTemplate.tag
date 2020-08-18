@@ -45,12 +45,11 @@
 				
 				.vitrine-main {
 					padding-top: 3em;
-					padding-bottom: 11em;
+					padding-bottom: 3em;
 					background-color: #484848;
 					background-image: url("data:image/svg+xml,%3Csvg width='40' height='12' viewBox='0 0 40 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6.172L6.172 0h5.656L0 11.828V6.172zm40 5.656L28.172 0h5.656L40 6.172v5.656zM6.172 12l12-12h3.656l12 12h-5.656L20 3.828 11.828 12H6.172zm12 0L20 10.172 21.828 12h-3.656z' fill='%234f4f4f' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
 					border-bottom: solid 1px #f1e9e2;
 					position: relative;
-					margin-bottom: calc(145px + 50px);
 				}
 				
 				.vitrine-titulo {
@@ -64,33 +63,44 @@
 					color: #fff;
 				}
 				
+				.vitrine-geral-titulo {
+					text-align: left;
+					font-weight: 700;
+					font-size: 1.75em;
+					border-bottom: 2px solid #000;
+					padding-bottom: 15px;
+					margin-bottom: 1em;
+					letter-spacing: -0.4px;
+					color: #000;
+				}
+				
 				.vitrine-destaque-list {
 					list-style: none;
 				}
 				
-				.vitrine-destaque-item {
+				.vitrine-item {
 					width: 250px;
 					height: 560px;
 					display: inline-block;
 				}
 				
-				.vitrine-destaque-item a {
+				.vitrine-item a {
 				    display: inline-block;
 				    width: 100%;
 				    max-width: 205px;
 				    text-align: center;
 				}
 				
-				.vitrine-destaque-item img {
+				.vitrine-item img {
 				    display: inline-block;
-				    width: 100%;
+				    width: 250px;
 				}
 				
-				.vitrine-destaque-link {
+				.vitrine-link {
 					text-decoration: none;
 				}
 				
-				.vitrine-destaque-item-name {
+				.vitrine-item-name {
 					text-transform: uppercase;
 					color: #fff;
 					white-space: nowrap;
@@ -98,10 +108,93 @@
 					text-overflow: ellipsis; 
 				}
 				
-				.vitrine-destaque-item-price {
+				.vitrine-item span {
 					color: #fff;
 				}
-			
+				
+				.vitrine-geral {
+					padding-top: 3em;
+					padding-bottom: 3em;
+					background-color: #fbfaf9;
+				}
+				
+				.vitrine-geral-item {
+					width: 300px;
+					margin-top: 20px;
+				}
+				
+				.vitrine-geral-item span {
+					color: #000;
+				}
+				
+				body {
+					background-color: #fbfaf9;
+				}
+				
+				.produto-section {
+					padding-top: 56px;
+				}
+				
+				.produto-container {
+					height: 390px;
+				}
+				
+				.produto-compra {
+					background-color: #f2f0ee;
+					padding: 24px 32px 16px;
+				}
+				
+				.produto-titulo {
+					font-weight: 700;
+				    font-size: 42px;
+				    line-height: 1;
+				    width: 500px;
+				    display: block;
+				}
+
+				.produto-titulo-autor {
+					font-size: 20px;
+				    font-weight: 600;
+    				color: #6c6a69;
+				    display: inline-block;
+				}
+				
+				.produto-titulo-categoria {
+					font-size: 16px;
+				    font-weight: 400;
+    				color: #6c6a69;
+				    display: inline-block;
+				}
+				
+				.produto-compra-info {
+				    line-height: 1.5;
+				    font-size: 20px;
+				}
+				
+				.produto-compra-botao {
+					height: 60px;
+   					width: 170px;
+				}
+				
+				.produto-info-titulo {
+					font-family: "open-sans", sans-serif;
+				    font-size: 1.8em;
+				    font-weight: 700;
+				    width: 100%;
+				    border-bottom: 2px solid rgba(108, 105, 105, 0.3);
+				    padding-bottom: .35em;
+				    margin-bottom: .6em;
+				    color: #6c6a69;
+				}
+				
+				.produto-info p {
+				font-family: "Roboto", serif;
+			    font-size: 1.1em;
+			    line-height: 1.8;
+			    color: #6c6a69;
+			    font-weight: 300;
+			    margin-top: 1em;
+				}
 			</style>
 
 		<script type="text/javascript"
@@ -111,43 +204,9 @@
 		<header>
 			<cdc:shopNavbar />
 		</header>
-		<main class="vitrine-main">
-			<section class="container vitrine-destaque">
-				<h2 class="vitrine-titulo">Últimos lançamentos</h2>
-				<ul class="d-flex justify-content-around vitrine-destaque-list">
 
-					<cdc:productItem 
-						productTitle="Mean Stack"
-						productCoverUrl="http://cdn.shopify.com/s/files/1/0155/7645/products/mean-featured_large.png?v=1423666173"
-						productKind="Livro digital"
-						productPrice="30.00"
-						productUrl="/products/47"
-					/>
-					<cdc:productItem 
-						productTitle="Spring Boot"
-						productCoverUrl="http://cdn.shopify.com/s/files/1/0155/7645/products/7aXPAWM4TObeQ4OOv3mUY-mrVzqf23Ty6enIslrhXvM_large.jpg?v=1501874081"
-						productKind="Combo digital + físico"
-						productPrice="70.00"
-						productUrl="/products/46"
-					/>
-					<cdc:productItem 
-						productTitle="Mean Stack"
-						productCoverUrl="http:////cdn.shopify.com/s/files/1/0155/7645/products/cover_4cf472c0-e215-419c-8c13-02914d4b5766_large.jpg?v=1597170715"
-						productKind="Livro físico"
-						productPrice="40.00"
-						productUrl="/products/45"
-					/>
-					
-				</ul>
-<%-- 						<div class="container-fluid" id="main">
-			<div class="row row-offcanvas row-offcanvas-left">
- 
-			</div>	
-		</div> --%>			
-				<jsp:doBody />
-			</section>
-		</main>
-
+		<jsp:doBody />
+		
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script
