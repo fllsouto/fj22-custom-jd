@@ -137,11 +137,11 @@
 	</div>
 	<ul class="navbar-nav">
 		<li class="nav-item"><a class="nav-link"
-			href="<c:url value='/admin/products' />"> <i
+			href="<c:url value='/products/cart' />"> <i
 				class="fa fa-shopping-cart fa-lg"></i> <span>37</span>
 		</a></li>
 		<li class="nav-item"><a class="nav-link"
-			href="<c:url value='/admin/products' />"> <i
+			href="<c:url value='/products/cart' />"> <i
 				class="fa fa-usd fa-lg"></i> <span>R$42,00</span>
 		</a></li>
 

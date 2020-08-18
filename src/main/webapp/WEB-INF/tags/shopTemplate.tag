@@ -188,12 +188,125 @@
 				}
 				
 				.produto-info p {
-				font-family: "Roboto", serif;
-			    font-size: 1.1em;
-			    line-height: 1.8;
-			    color: #6c6a69;
-			    font-weight: 300;
-			    margin-top: 1em;
+					font-family: "Roboto", serif;
+				    font-size: 1.1em;
+				    line-height: 1.8;
+				    color: #6c6a69;
+				    font-weight: 300;
+				    margin-top: 1em;
+				}
+				
+				.cart-section {
+					padding-top: 56px;
+				}
+				
+				.cart-info-titulo {
+					font-family: "open-sans", sans-serif;
+				    font-size: 1.8em;
+				    font-weight: 700;
+				    width: 100%;
+				    border-bottom: 2px solid rgba(108, 105, 105, 0.3);
+				    padding-bottom: .35em;
+				    margin-bottom: .6em;
+				    color: #6c6a69;
+				}
+				
+				.cart-formulario {
+				    width: 100%;
+				    margin: 0;
+				    font-size: 1.2em;
+				}
+				
+				.cart-formulario-tabela {
+					background-color: #F2F0EE;
+				    text-align: center;
+				    width: 100%;
+				}
+				
+				.cart-formulario-tabela th {
+				    padding: .5em 0;
+				}
+				
+				.cart-formulario-tabela-cabecalho {
+					background-color: #E4E1DE;
+				    border-bottom: 1px solid #D5D3D1;
+				    padding-bottom: .35em;
+				    margin-bottom: .6em;
+				    font-family: "open-sans", sans-serif;
+				    font-size: .9em;
+				    font-weight: 700;
+				}
+				
+				.cart-formulario-tabela-row {
+					height: 200px;
+				}
+				
+				.cart-formulario-tabela-footer {
+					background-color: #E4E1DE;
+				    border-top: 1px solid #D5D3D1;
+				    font-family: "open-sans", sans-serif;
+				    font-size: .9em;
+				    font-weight: 700;
+				}
+				
+				.cart-formulario-tabela-item {
+					font-size: 16px;
+				    font-family: "Roboto", serif;
+				    padding: 4px;
+				    font-weight: 700;
+				    vertical-align: middle;
+				}
+				
+				.formularioDoCarrinho-item-imagem {
+					width: 100px;
+				}
+				
+				.cart-formulario-tabela-item span {
+					display: block;
+				}
+				
+				.cart-formulario-tabela-item-quantidade {
+					max-width: 50px;
+					text-align: center;
+				}
+				
+				.cart-formulario-tabela-item-remover {
+					width: 23px;
+					height: 23px;
+				}
+				
+				.cart-formulario-tabela-item-submeter {
+					height: 45px;
+					margin-left: 10px;
+					text-transform: uppercase;
+   					width: 230px;
+ 					font-family: "open-sans", sans-serif;
+				    font-size: 1em;
+				    font-weight: 800;
+				    color: #FFF;
+				    text-align: center;
+				    padding: 0 9px 0 2px;
+				    border-radius: 10px;
+				    display: block;
+				    border: none;
+				    cursor: pointer;
+				}
+				
+				.cart-formulario-tabela-item-atualizar {
+					height: 45px;
+					margin-left: 10px;
+   					width: 70px;
+				    color: #FFF;
+				    text-align: center;
+				    padding: 0 9px 0 2px;
+				    border-radius: 10px;
+				    display: block;
+				    border: none;
+				    cursor: pointer;
+				}
+				
+				.cart-formulario-tabela-footer-item {
+					padding: 10px;
 				}
 			</style>
 

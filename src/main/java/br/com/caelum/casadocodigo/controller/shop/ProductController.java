@@ -10,6 +10,11 @@ public class ProductController {
 
 	@GetMapping("/products/{id}")
 	public ModelAndView product(@PathVariable("id") Long productId) {
-		return new ModelAndView("//shop/product");
+		return new ModelAndView("/shop/product");
+	}
+	
+	@GetMapping("/products/cart")
+	public ModelAndView cart() {
+		return new ModelAndView("/shop/cart");
 	}
 }
