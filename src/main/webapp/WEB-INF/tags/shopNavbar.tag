@@ -1,4 +1,3 @@
-<%@ tag language="java" description="navbar shop menu" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <nav
@@ -8,7 +7,7 @@
 				class="navbar-logo" role="img" aria-labelledby="altLogo" x="0px"
 				y="0px" viewBox="0 0 208.769 70"
 				enable-background="new 0 0 208.769 70" xml:space="preserve">
-						<title id="altLogo">Casa do CÃ³digo - Livros e Tecnologia</title>
+						<title id="altLogo">Casa do Código - Livros e Tecnologia</title>
 						<rect id="back" fill="#FFFFFF" width="65" height="70"></rect>
 						<g id="symbol">
 							<polygon fill="#F9C45B"

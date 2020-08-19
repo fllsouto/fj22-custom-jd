@@ -1,4 +1,3 @@
-<%@ tag language="java" description="Sidebar navigation menu" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0"

@@ -68,4 +68,16 @@ public class Product {
 	public String getCoverUrl() {
 		return this.book.getCoverUrl();
 	}
+
+	public String getCategory() {
+		return this.book.getCategoryTitle();
+	}
+
+	public String getAuthor() {
+		return this.book.getAuthorName();
+	}
+
+	public String getDescription() {
+		return this.book.getDescription();
+	}
 }

@@ -1,4 +1,3 @@
-<%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ attribute name="productTitle" required="true"%>
 <%@ attribute name="productCoverUrl" required="true"%>

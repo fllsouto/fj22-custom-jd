@@ -8,27 +8,28 @@
 				class="container produto-section d-flex justify-content-around">
 				<div>
 					<img class="vitrineDestacao-item-imagem"
-						src="http://cdn.shopify.com/s/files/1/0155/7645/products/mean-featured_large.png?v=1423666173"
-						title="Mean Stack">			
+						src="${ product.coverUrl }"
+						title="${ product.title }">
 				</div>
 				<div class="produto-container d-flex flex-column justify-content-around">
-					<h1 class="produto-titulo">Mean Stack</h1>
-					<span class="produto-titulo-categoria">Categoria: Backend</span>
-					<span class="produto-titulo-autor">Flavio Almeida</span>
+					<h1 class="produto-titulo">${ product.title }</h1>
+					<span class="produto-titulo-categoria">Categoria: ${ product.category }</span>
+					<span class="produto-titulo-autor">${ product.author }</span>
 					
 					<form action="/cart/add" method="POST" class="adicionarAoCarrinho">
+						<input type="hidden" name="productId" value="${ product.id }" />
 						<div class="produto-compra d-flex justify-content-between">
 							<label class="produto-compra-info"
 								for="product-variant-34446257290">
 								<span class="adicionarAoCarrinho-tipoDaOferta" role="presentation">
 									<span class="adicionarAoCarrinho-tipoDaOferta-nome">
-										E-book + Impresso
+										${ product.kind.description }
 									</span>
 					
 								</span>
 								<p class="adicionarAoCarrinho-preco">
 									<span class="adicionarAoCarrinho-preco-valor" itemprop="price">
-										R$ 69,90
+										<fmt:formatNumber value="${ product.price }" type="currency"  currencySymbol="R$" />
 									</span>
 					
 								</p>
@@ -48,7 +49,7 @@
 					Conteúdo
 				</h2>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dui in felis ornare pellentesque. Ut scelerisque sem sed massa egestas posuere. Nam id lacus dui. Nullam non convallis urna, sit amet cursus nisi. Nam sit amet ex mi. Ut vel enim id turpis posuere condimentum quis sit amet magna. Duis rutrum id elit fringilla tempor. Donec viverra convallis augue, ac gravida felis imperdiet et. Etiam id dictum quam. Cras eget condimentum lectus, ac lobortis est. Suspendisse sit amet augue nisi. Integer fringilla, libero nec accumsan congue, urna enim iaculis odio, eu lacinia arcu nisi non tellus. Aenean massa lacus, scelerisque malesuada convallis eu, rhoncus et sapien. Vestibulum hendrerit turpis ac quam blandit, in tristique ipsum tempus. Aenean nec risus vitae odio congue imperdiet. Proin rhoncus lacus nec nulla dignissim accumsan.
+					${ product.description }
 				</p>
 				<p>
 					Suspendisse pretium, dui ut imperdiet ullamcorper, orci lectus pharetra tellus, nec ornare mi quam quis ex. Vivamus efficitur euismod nisi, eu sollicitudin odio feugiat sed. Nulla tempus non justo quis mattis. Morbi auctor volutpat maximus. Cras pulvinar consectetur dui, vitae scelerisque odio interdum ut. Maecenas lobortis bibendum ligula vitae gravida. Donec vel eros lectus. Cras neque nisi, suscipit nec mattis sed, rhoncus non est. In sollicitudin eros a fermentum rutrum.				

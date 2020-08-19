@@ -31,7 +31,9 @@ public class ProductController {
 
 	@GetMapping("/products/{id}")
 	public ModelAndView product(@PathVariable("id") Long productId) {
-		return new ModelAndView("/shop/product");
+		ModelAndView mv = new ModelAndView("/shop/product");
+		mv.addObject("product", productDao.findById(productId));
+		return mv;
 	}
 
 	@GetMapping("/products/cart")
