@@ -65,7 +65,7 @@ public class Product {
 	public String getTitle() {
 		return this.book.getTitle();
 	}
-	public String getCover() {
+	public String getCoverUrl() {
 		return this.book.getCoverUrl();
 	}
 }

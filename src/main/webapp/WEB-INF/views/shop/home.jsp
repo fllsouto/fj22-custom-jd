@@ -8,29 +8,17 @@
 				<div class="container vitrine-main vitrine-destaque">	
 					<h2 class="vitrine-titulo">Últimos lançamentos</h2>
 					<ul class="d-flex justify-content-around vitrine-destaque-list">
+						<c:forEach items="${ lastProducts }" var="product">
 	
-						<cdc:productItem 
-							productTitle="Mean Stack"
-							productCoverUrl="http://cdn.shopify.com/s/files/1/0155/7645/products/mean-featured_large.png?v=1423666173"
-							productKind="Livro digital"
-							productPrice="30.00"
-							productUrl="/products/47"
-						/>
-						<cdc:productItem 
-							productTitle="Spring Boot"
-							productCoverUrl="http://cdn.shopify.com/s/files/1/0155/7645/products/7aXPAWM4TObeQ4OOv3mUY-mrVzqf23Ty6enIslrhXvM_large.jpg?v=1501874081"
-							productKind="Combo digital + físico"
-							productPrice="70.00"
-							productUrl="/products/46"
-						/>
-						<cdc:productItem 
-							productTitle="Mean Stack"
-							productCoverUrl="http:////cdn.shopify.com/s/files/1/0155/7645/products/cover_4cf472c0-e215-419c-8c13-02914d4b5766_large.jpg?v=1597170715"
-							productKind="Livro físico"
-							productPrice="40.00"
-							productUrl="/products/45"
-						/>
-						
+							<cdc:productItem 
+								productTitle="${ product.title }"
+								productCoverUrl="${ product.coverUrl }"
+								productKind="${ product.kind.description }"
+								productPrice="${ product.price }"
+								productUrl="/products/${ product.id }"
+							/>
+
+						</c:forEach>
 					</ul>
 				</div>		
 			</section>
@@ -39,63 +27,17 @@
 					<h2 class="vitrine-geral-titulo">Lista de Livros</h2>
 					<ul class="d-flex flex-wrap justify-content-around align-content-around vitrine-destaque-list">
 	
-						<cdc:productItem 
-							productTitle="Mean Stack"
-							productCoverUrl="http://cdn.shopify.com/s/files/1/0155/7645/products/mean-featured_large.png?v=1423666173"
-							productKind="Livro digital"
-							productPrice="30.00"
-							productUrl="/products/product"
-							customClasses="vitrine-geral-item"
-						/>
-						<cdc:productItem 
-							productTitle="Spring Boot"
-							productCoverUrl="http://cdn.shopify.com/s/files/1/0155/7645/products/7aXPAWM4TObeQ4OOv3mUY-mrVzqf23Ty6enIslrhXvM_large.jpg?v=1501874081"
-							productKind="Combo digital + físico"
-							productPrice="70.00"
-							productUrl="/products/46"
-							customClasses="vitrine-geral-item"
-						/>
-						<cdc:productItem 
-							productTitle="Mean Stack"
-							productCoverUrl="http:////cdn.shopify.com/s/files/1/0155/7645/products/cover_4cf472c0-e215-419c-8c13-02914d4b5766_large.jpg?v=1597170715"
-							productKind="Livro físico"
-							productPrice="40.00"
-							productUrl="/products/45"
-							customClasses="vitrine-geral-item"
-						/>
-						<cdc:productItem 
-							productTitle="Mean Stack"
-							productCoverUrl="http:////cdn.shopify.com/s/files/1/0155/7645/products/cover_4cf472c0-e215-419c-8c13-02914d4b5766_large.jpg?v=1597170715"
-							productKind="Livro físico"
-							productPrice="40.00"
-							productUrl="/products/45"
-							customClasses="vitrine-geral-item"
-						/>
-						<cdc:productItem 
-							productTitle="Mean Stack"
-							productCoverUrl="http:////cdn.shopify.com/s/files/1/0155/7645/products/cover_4cf472c0-e215-419c-8c13-02914d4b5766_large.jpg?v=1597170715"
-							productKind="Livro físico"
-							productPrice="40.00"
-							productUrl="/products/45"
-							customClasses="vitrine-geral-item"
-						/>
-						<cdc:productItem 
-							productTitle="Mean Stack"
-							productCoverUrl="http://cdn.shopify.com/s/files/1/0155/7645/products/mean-featured_large.png?v=1423666173"
-							productKind="Livro digital"
-							productPrice="30.00"
-							productUrl="/products/47"
-							customClasses="vitrine-geral-item"
-						/>
-						
-						<cdc:productItem 
-							productTitle="Spring Boot"
-							productCoverUrl="http://cdn.shopify.com/s/files/1/0155/7645/products/7aXPAWM4TObeQ4OOv3mUY-mrVzqf23Ty6enIslrhXvM_large.jpg?v=1501874081"
-							productKind="Combo digital + físico"
-							productPrice="70.00"
-							productUrl="/products/46"
-							customClasses="vitrine-geral-item"
-						/>
+						<c:forEach items="${ products }" var="product">
+	
+							<cdc:productItem 
+								productTitle="${ product.title }"
+								productCoverUrl="${ product.coverUrl }"
+								productKind="${ product.kind.description }"
+								productPrice="${ product.price }"
+								productUrl="/products/${ product.id }"
+							/>
+
+						</c:forEach>
 									
 					</ul>
 				</div>

@@ -22,6 +22,11 @@ public class ProductDao {
 	public List<Product> list() {
 		return manager.createQuery("select p from Product p", Product.class).getResultList();
 	}
+	
+	
+	public List<Product> lastProducts() {
+		return manager.createQuery("select p from Product p order by p.id", Product.class).setMaxResults(3).getResultList();
+	}
 
 	public Product findById(Long id) {
 		return manager.find(Product.class, id);
