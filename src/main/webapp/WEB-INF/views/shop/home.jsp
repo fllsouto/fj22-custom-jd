@@ -35,6 +35,7 @@
 								productKind="${ product.kind.description }"
 								productPrice="${ product.price }"
 								productUrl="/products/${ product.id }"
+								customClasses="vitrine-geral-item"							
 							/>
 
 						</c:forEach>

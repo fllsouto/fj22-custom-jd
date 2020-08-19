@@ -8,7 +8,7 @@
 <%@ attribute name="customClasses" required="false"%>
 
 <li class="vitrine-item d-flex flex-column justify-content-between align-items-center ${ customClasses }">
-	<span class="h3 vitrine-item-name">${ productTitle }</span>
+	<span class="vitrine-item-name">${ productTitle }</span>
 	<img class="vitrineDestacao-item-imagem" src="${ productCoverUrl }" title="${ productTitle }">
 	<span class="h4 vitrine-destaque-item-price">${ productKind }</span>
 		<span class="h4 vitrine-destaque-item-price"><fmt:formatNumber value="${ productPrice }" type="currency"  currencySymbol="R$" /></span>
