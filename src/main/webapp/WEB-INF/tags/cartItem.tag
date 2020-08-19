@@ -24,8 +24,8 @@
 	</td>
 	<td class="cart-formulario-tabela-item" title="Preço unitário: R$29,90"><fmt:formatNumber value="${ productTotalPrice }" type="currency"  currencySymbol="R$" /></td>
 	<td class="cart-formulario-tabela-item">
-		<a href="/cart/change?id=47232878292&amp;quantity=0">
-			<img class="cart-formulario-tabela-item-remover" src="${ productRemoveUrl }" alt="X" title="Remover">
+		<a href="${ productRemoveUrl }">
+			<img class="cart-formulario-tabela-item-remover" src="https://cdn.shopify.com/s/files/1/0155/7645/t/241/assets/trash.png" alt="X" title="Remover">
 		</a>
 	</td>
 </tr>

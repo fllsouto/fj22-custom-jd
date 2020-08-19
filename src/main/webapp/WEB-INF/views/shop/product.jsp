@@ -16,7 +16,7 @@
 					<span class="produto-titulo-categoria">Categoria: ${ product.category }</span>
 					<span class="produto-titulo-autor">${ product.author }</span>
 					
-					<form action="/cart/add" method="POST" class="adicionarAoCarrinho">
+					<form action="/products/cart/add" method="POST" class="adicionarAoCarrinho">
 						<input type="hidden" name="productId" value="${ product.id }" />
 						<div class="produto-compra d-flex justify-content-between">
 							<label class="produto-compra-info"

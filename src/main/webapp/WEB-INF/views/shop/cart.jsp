@@ -22,27 +22,18 @@
 							</tr>
 						</thead>
 						<tbody>
-							<cdc:cartItem 
-								productUrl="/products/46"
-								productCoverUrl="http://cdn.shopify.com/s/files/1/0155/7645/products/7aXPAWM4TObeQ4OOv3mUY-mrVzqf23Ty6enIslrhXvM_large.jpg?v=1501874081" 
-								productTitle="Spring MVC" 
-								productKind="E-book" 
-								productPrice="29.90" 
-								productAmount="2" 
-								productTotalPrice="59.80" 
-								productRemoveUrl="http://cdn.shopify.com/s/files/1/0155/7645/t/241/assets/trash.png?v=14717796075839190483" 
-							/>
-							
-							<cdc:cartItem 
-								productUrl="/products/47"
-								productCoverUrl="http://cdn.shopify.com/s/files/1/0155/7645/products/mean-featured_large.png?v=1423666173"
-								productTitle="Mean Stack" 
-								productKind="Combo digital + físico" 
-								productPrice="35.00" 
-								productAmount="3" 
-								productTotalPrice="105.00" 
-								productRemoveUrl="http://cdn.shopify.com/s/files/1/0155/7645/t/241/assets/trash.png?v=14717796075839190483" 
-							/>
+							<c:forEach items="${ cart.items }" var="item">
+								<cdc:cartItem 
+									productUrl="/products/${ item.product.id }"
+									productCoverUrl="${ item.product.coverUrl }" 
+									productTitle="${ item.product.title }"
+									productKind="${ item.product.kind.description }" 
+									productPrice="${ item.product.price }"
+									productAmount="${ item.amount }"
+									productTotalPrice="${ item.totalPrice }"
+									productRemoveUrl="/products/cart/remove/${ item.product.id }" 
+								/>
+							</c:forEach>
 						</tbody>
 						<tfoot class="cart-formulario-tabela-footer">
 							<tr>
