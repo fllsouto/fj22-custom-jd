@@ -55,7 +55,7 @@
 					<!--/row-->
 				</div>
 
-				<script async >
+				<script async="false" >
 					function fetchInformations(url, element) {
 						$.get(url, function (data) {
 							$(element).text(data);

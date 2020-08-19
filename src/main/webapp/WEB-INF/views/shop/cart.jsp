@@ -52,7 +52,7 @@
 									</button>
 								</td>
 								<td class="cart-formulario-tabela-footer-item">
-									<button class="btn btn-primary cart-formulario-tabela-item-atualizar" type="submit" name="update">
+									<button class="btn btn-primary cart-formulario-tabela-item-atualizar" id="cart-update-button" type="submit" name="update">
 										<i class="fa fa-refresh fa-lg"></i> 
 									</button>
 								</td>
@@ -65,5 +65,18 @@
 					</table>
 				</form>
 		</main>
+	    <script async="false">
+	    	function reloadCart(event) {
+	    		event.preventDefault();
+	    		console.log("submetendo dados...");
+/* 				url = "/products/update-cart"
+	    		$.post(url, function (data) {
+					
+				}) */
+	    	}
+	    	
+	    	$("#cart-update-button").on("click", reloadCart);
+	    </script>
     </jsp:body>
+    
 </cdc:shopTemplate>
