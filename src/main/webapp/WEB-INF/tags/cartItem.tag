@@ -22,10 +22,12 @@
 	<td class="cart-formulario-tabela-item">
 		<input class="cart-formulario-tabela-item-quantidade" type="number" min="0" id="updates_47232878292" name="updates[47232878292]" value="${ productAmount }">
 	</td>
-	<td class="cart-formulario-tabela-item" title="Preço unitário: R$29,90"><fmt:formatNumber value="${ productTotalPrice }" type="currency"  currencySymbol="R$" /></td>
+	<td class="cart-formulario-tabela-item" title="Preço unitário"><fmt:formatNumber value="${ productTotalPrice }" type="currency"  currencySymbol="R$" /></td>
 	<td class="cart-formulario-tabela-item">
-		<a href="${ productRemoveUrl }">
-			<img class="cart-formulario-tabela-item-remover" src="https://cdn.shopify.com/s/files/1/0155/7645/t/241/assets/trash.png" alt="X" title="Remover">
-		</a>
+		<form action="${ productRemoveUrl }" method="post">
+			<button type="submit" style="border: none;">
+				<img class="cart-formulario-tabela-item-remover" src="https://cdn.shopify.com/s/files/1/0155/7645/t/241/assets/trash.png" alt="X" title="Remover">
+			</button>
+		</form>
 	</td>
 </tr>

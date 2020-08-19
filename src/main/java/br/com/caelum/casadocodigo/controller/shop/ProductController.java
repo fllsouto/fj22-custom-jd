@@ -70,4 +70,11 @@ public class ProductController {
 		System.out.println("Id do produto: " + productId);
 		return new ModelAndView("redirect:/");
 	}
+	
+	@PostMapping("/products/cart/remove/{id}")
+	public ModelAndView removeFromCart(@PathVariable("id") Long productId) {
+		Product product = productDao.findById(productId);
+		cart.remove(product);
+		return new ModelAndView("redirect:/products/cart");
+	}
 }

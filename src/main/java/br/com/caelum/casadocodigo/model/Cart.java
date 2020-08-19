@@ -30,6 +30,10 @@ public class Cart {
 	public Set<CartItem> getItems() {
 		return items;
 	}
+
+	public void remove(Product product) {
+		items.remove(new CartItem(product));
+	}
 	
 	
 	

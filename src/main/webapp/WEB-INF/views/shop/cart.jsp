@@ -9,7 +9,7 @@
 				<h2 class="cart-info-titulo">
 					Seu carrinho
 				</h2>
-				<form class="cart-formulario" action="/cart" method="post">
+				
 					<table class="cart-formulario-tabela">
 						<thead class="cart-formulario-tabela-cabecalho">
 							<tr>
@@ -36,25 +36,27 @@
 							</c:forEach>
 						</tbody>
 						<tfoot class="cart-formulario-tabela-footer">
-							<tr>
-								<td class="cart-formulario-tabela-footer-item" colspan="3">
-									<button class="btn btn-warning cart-formulario-tabela-item-submeter" type="submit" name="checkout" >
-										<i class="fa fa-cart-plus fa-lg"></i> Finalizar compra
-									</button>
-								</td>
-								<td class="cart-formulario-tabela-footer-item">
-									<button class="btn btn-primary cart-formulario-tabela-item-atualizar" id="cart-update-button" type="submit" name="update">
-										<i class="fa fa-refresh fa-lg"></i> 
-									</button>
-								</td>
-								<td class="cart-formulario-tabela-footer-item">
-									<fmt:formatNumber value="${ 164.80 }" type="currency"  currencySymbol="R$" />
-								</td>
-								<td></td>
-							</tr>
+								<tr>
+									<td class="cart-formulario-tabela-footer-item" colspan="3">
+									<form class="cart-formulario" action="/cart" method="post">
+										<button class="btn btn-warning cart-formulario-tabela-item-submeter" type="submit" name="checkout" >
+											<i class="fa fa-cart-plus fa-lg"></i> Finalizar compra
+										</button>
+									</form>
+									</td>
+									<td class="cart-formulario-tabela-footer-item">
+										<button class="btn btn-primary cart-formulario-tabela-item-atualizar" id="cart-update-button" type="submit" name="update">
+											<i class="fa fa-refresh fa-lg"></i> 
+										</button>
+									</td>
+									<td class="cart-formulario-tabela-footer-item">
+										<fmt:formatNumber value="${ 164.80 }" type="currency"  currencySymbol="R$" />
+									</td>
+									<td></td>
+								</tr>
 						</tfoot>
 					</table>
-				</form>
+				</section>
 		</main>
 	    <script async="false">
 	    	function reloadCart(event) {
