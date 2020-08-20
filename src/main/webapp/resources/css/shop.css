@@ -74,6 +74,7 @@
 
 .vitrine-link {
 	text-decoration: none;
+	width: 205px;
 }
 
 .vitrine-item-name {
@@ -89,6 +90,7 @@
 
 .vitrine-item span {
 	color: #fff;
+	font-size: 18px;
 }
 
 .vitrine-geral {
@@ -146,12 +148,13 @@ body {
 }
 
 .produto-compra-info {
+	margin: 15px 0 0;
 	line-height: 1.5;
 	font-size: 20px;
 }
 
 .produto-compra-botao {
-	height: 60px;
+	height: 45px;
 	width: 170px;
 }
 

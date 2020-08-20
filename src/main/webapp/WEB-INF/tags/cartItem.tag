@@ -20,7 +20,7 @@
 	</td>
 	<td class="cart-formulario-tabela-item"><fmt:formatNumber value="${ productPrice }" type="currency"  currencySymbol="R$" /></td>
 	<td class="cart-formulario-tabela-item">
-		<input class="cart-formulario-tabela-item-quantidade" type="number" min="0" id="updates_47232878292" name="updates[47232878292]" value="${ productAmount }">
+		<input disabled class="cart-formulario-tabela-item-quantidade" type="number" min="0" value="${ productAmount }" disabled>
 	</td>
 	<td class="cart-formulario-tabela-item" title="Preço unitário"><fmt:formatNumber value="${ productTotalPrice }" type="currency"  currencySymbol="R$" /></td>
 	<td class="cart-formulario-tabela-item">

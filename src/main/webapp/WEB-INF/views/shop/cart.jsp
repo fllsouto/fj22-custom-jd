@@ -38,21 +38,15 @@
 						<tfoot class="cart-formulario-tabela-footer">
 								<tr>
 									<td class="cart-formulario-tabela-footer-item" colspan="3">
-									<form class="cart-formulario" action="/cart" method="post">
+									<form class="cart-formulario" action="/products/checkout" method="post">
 										<button class="btn btn-warning cart-formulario-tabela-item-submeter" type="submit" name="checkout" >
 											<i class="fa fa-cart-plus fa-lg"></i> Finalizar compra
 										</button>
 									</form>
 									</td>
-									<td class="cart-formulario-tabela-footer-item">
-										<button class="btn btn-primary cart-formulario-tabela-item-atualizar" id="cart-update-button" type="submit" name="update">
-											<i class="fa fa-refresh fa-lg"></i> 
-										</button>
+									<td class="cart-formulario-tabela-footer-item" colspan="3">
+										<fmt:formatNumber value="${ cart.totalPrice() }" type="currency"  currencySymbol="R$" />
 									</td>
-									<td class="cart-formulario-tabela-footer-item">
-										<fmt:formatNumber value="${ 164.80 }" type="currency"  currencySymbol="R$" />
-									</td>
-									<td></td>
 								</tr>
 						</tfoot>
 					</table>

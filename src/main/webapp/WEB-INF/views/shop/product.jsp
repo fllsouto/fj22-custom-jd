@@ -18,7 +18,7 @@
 					
 					<form action="/products/cart/add" method="POST" class="adicionarAoCarrinho">
 						<input type="hidden" name="productId" value="${ product.id }" />
-						<div class="produto-compra d-flex justify-content-between">
+						<div class="produto-compra d-flex justify-content-between align-items-center">
 							<label class="produto-compra-info"
 								for="product-variant-34446257290">
 								<span class="adicionarAoCarrinho-tipoDaOferta" role="presentation">

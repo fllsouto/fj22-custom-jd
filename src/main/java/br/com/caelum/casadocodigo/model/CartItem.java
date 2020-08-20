@@ -30,6 +30,10 @@ public class CartItem {
 		return this.product.getPrice().multiply(amount);
 	}
 	
+	public OrderItem toOrderItem() {
+		return new OrderItem(product, amount, getTotalPrice());
+	}
+	
 
 	
 	@Override

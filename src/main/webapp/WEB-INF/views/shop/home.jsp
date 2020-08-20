@@ -10,7 +10,8 @@
 					<ul class="d-flex justify-content-around vitrine-destaque-list">
 						<c:forEach items="${ lastProducts }" var="product">
 	
-							<cdc:productItem 
+							<cdc:productItem
+								productId="${ product.id }"
 								productTitle="${ product.title }"
 								productCoverUrl="${ product.coverUrl }"
 								productKind="${ product.kind.description }"
@@ -29,7 +30,8 @@
 	
 						<c:forEach items="${ products }" var="product">
 	
-							<cdc:productItem 
+							<cdc:productItem
+								productId="${ product.id }"
 								productTitle="${ product.title }"
 								productCoverUrl="${ product.coverUrl }"
 								productKind="${ product.kind.description }"

@@ -1,7 +1,10 @@
 package br.com.caelum.casadocodigo.model;
 
+import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.enterprise.context.SessionScoped;
 
@@ -33,6 +36,27 @@ public class Cart {
 
 	public void remove(Product product) {
 		items.remove(new CartItem(product));
+	}
+
+	public Integer amountOfItems() {
+		return items.stream().map(existingItem -> existingItem.getAmount())
+				.reduce(0, (subtotal, element) -> subtotal + element);
+	}
+	
+	public BigDecimal totalPrice() {
+		return items.stream().map(existingItem -> existingItem.getTotalPrice())
+				.reduce(BigDecimal.ZERO, (subtotal, element) -> subtotal.add(element));
+	}
+
+	public CheckoutOrder toOrder() {
+		Set<OrderItem> orderItems = this.items.stream().map(CartItem::toOrderItem)
+				.collect(Collectors.toSet());
+		
+		return new CheckoutOrder(orderItems, this.totalPrice());
+	}
+
+	public void clean() {
+		this.items.clear();
 	}
 	
 	

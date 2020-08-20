@@ -137,12 +137,23 @@
 	<ul class="navbar-nav">
 		<li class="nav-item"><a class="nav-link"
 			href="<c:url value='/products/cart' />"> <i
-				class="fa fa-shopping-cart fa-lg"></i> <span>37</span>
+				class="fa fa-shopping-cart fa-lg"></i> <span class="cart-amount"></span>
 		</a></li>
 		<li class="nav-item"><a class="nav-link"
 			href="<c:url value='/products/cart' />"> <i
-				class="fa fa-usd fa-lg"></i> <span>R$42,00</span>
+				class="fa fa-usd fa-lg"></i> <span class="cart-total"></span>
 		</a></li>
 
 	</ul>
 </nav>
+
+<script async="false" >
+	function fetchInformations(url, element) {
+		$.get(url, function (data) {
+			$(element).text(data);
+		})
+	}
+
+	fetchInformations("/products/cart/amount", ".cart-amount");
+	fetchInformations("/products/cart/total", ".cart-total");
+</script>
